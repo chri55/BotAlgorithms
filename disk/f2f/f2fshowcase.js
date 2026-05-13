@@ -466,11 +466,11 @@ function Load() {
 
 function LoadField() {
   fieldSVG.select(".backGround").append("text").attr("x",  center[0]).attr("y", unit2Px * (1 / 5))
-          .style("text-anchor", "middle").style("font-size", unit2Px * (1 / 5)).text("Search and Exit");
+          .style("text-anchor", "middle").attr("font-size", unit2Px * (1 / 5)).text("Search and Exit");
   fieldSVG.select(".backGround").append("text").attr("x",  center[0]).attr("y", unit2Px * (3 / 10))
-          .style("text-anchor", "middle").style("font-size", unit2Px * (1 / 10)).text(shapes[degrees - 1] + " Wireless");
+          .style("text-anchor", "middle").attr("font-size", unit2Px * (1 / 10)).text(shapes[degrees - 1] + " Wireless");
   fieldSVG.select(".backGround").append("text").attr("x",  center[0]).attr("y", unit2Px * (5 / 10)).attr("class", "exitText")
-          .style("text-anchor", "middle").style("font-size", unit2Px * (2 / 10))
+          .style("text-anchor", "middle").attr("font-size", unit2Px * (2 / 10))
           .text("Left-Click to place exit at ~" + 0 + " degrees");
   if (degrees == 13) {//If circle, change to 360 degrees.
     degrees = 360;
@@ -491,22 +491,22 @@ function LoadField() {
           .style("fill", "#ffffff").style("stroke", "#000000").style("stroke-width", (1 / 200) * unit2Px);
   if (degrees == 2) {//Add two distance numbers if a line.
     fieldSVG.select(".backGround").append("text").attr("x", 3.1 * unit2Px).attr("y", center[1])
-            .attr("class", "left").style("text-anchor", "middle").style("font-size", unit2Px / 5).text("1");
+            .attr("class", "left").style("text-anchor", "middle").attr("font-size", unit2Px / 5).text("1");
     fieldSVG.select(".backGround").append("text").attr("x", .9 * unit2Px).attr("y", center[1])
-            .attr("class", "right").style("text-anchor", "middle").style("font-size", unit2Px / 5).text("-1");
+            .attr("class", "right").style("text-anchor", "middle").attr("font-size", unit2Px / 5).text("-1");
   } else {//Add two reference angles if not a line.
     fieldSVG.select(".backGround").append("text").attr("x", 3.1 * unit2Px).attr("y", center[1])
-            .style("text-anchor", "start").style("font-size", unit2Px / 5).text("0");
+            .style("text-anchor", "start").attr("font-size", unit2Px / 5).text("0");
     fieldSVG.select(".backGround").append("text").attr("x", center[0]).attr("y", .9 * unit2Px)
-            .style("text-anchor", "middle").style("font-size", unit2Px / 5).text("90");
+            .style("text-anchor", "middle").attr("font-size", unit2Px / 5).text("90");
   }
 }
 
 function LoadGraph() {
   timeText = graphSVG.select(".backGround").append("text").attr("x", unit2Px * (1/ 25)).attr("y", unit2Px * .4)
-             .style("font-size", unit2Px * (8 / 25)).style("text-anchor", "start").text("Time: 0");
+             .attr("font-size", unit2Px * (8 / 25)).style("text-anchor", "start").text("Time: 0");
   frameText = graphSVG.select(".backGround").append("text").attr("x", unit2Px * (1/ 25)).attr("y", unit2Px * .7)
-              .style("font-size", unit2Px * (8 / 25)).style("text-anchor", "start").text("Frame: 0");
+              .attr("font-size", unit2Px * (8 / 25)).style("text-anchor", "start").text("Frame: 0");
   graphSVG.select(".backGround").append("rect").attr("width", 4 * unit2Px).attr("height", unit2Px / 8)
           .attr("fill-opacity", 0.0).style("stroke", "#000000");
   timeSlider = graphSVG.select(".backGround").append("rect").attr("width", unit2Px / 8).attr("height", unit2Px / 8)
@@ -532,18 +532,18 @@ function LoadGraph() {
   for (var i = 0; i < 3; i++) {//Create y-axis labels.
     graphSVG.select(".backGround").append("text").attr("x", unit2Px * (8 / 25))
             .attr("y", unit2Px * (90 / 25) - i * unit2Px * (20 / 25))
-            .style("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i + 'r');
+            .attr("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i + 'r');
   }
   for (var i = 0; i < 11; i++) {//Create x-axis labels.
     graphSVG.select(".backGround").append("text").attr("x", unit2Px * (10 / 25) + i * unit2Px * (8 / 25))
             .attr("y", unit2Px * (94 / 25))
-            .style("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i);
+            .attr("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i);
   }
   graphSVG.select(".backGround").append("text").attr("x", unit2Px * (5 / 25)).attr("y", unit2Px * (70 / 25)).attr("text-anchor", "middle")
           .attr("transform", "rotate(-90," + unit2Px * (5 / 25) + ',' + unit2Px * (70 / 25) + ')')
-          .style("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Distance from Exit");
+          .attr("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Distance from Exit");
   graphSVG.select(".backGround").append("text").attr("x", unit2Px * 2).attr("y", unit2Px * (395 / 100)).attr("text-anchor", "middle")
-          .style("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Time");
+          .attr("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Time");
 }
 
 //Reset Animation.
@@ -780,7 +780,7 @@ function MoveDataBox() {
   dataBox.attr("height", instruBinder[+hold.attr("data")].length * unit2Px / 4);
   for (var i = 0; i < instruBinder[+hold.attr("data")].length; i++) {//Add instructions as text
     dataBox.append("text").attr("x", (1 / 10) * unit2Px).attr("y", (1 + i) * (3 / 20) * unit2Px)
-           .style("font-size", (3 / 20) * unit2Px)
+           .attr("font-size", (3 / 20) * unit2Px)
            .text(instruBinder[+hold.attr("data")][i]);
   }
   var num = hold.attr("data");

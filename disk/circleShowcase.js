@@ -512,7 +512,7 @@ function Load() {
           graphSVG.select(".overLay").append("text")
                   .attr("x", (2*unit2Px) + (unit2Px / 15) + (j * (2/3 * unit2Px)))
                   .attr("y", (unit2Px * 0.6) + (unit2Px/32) +  (i * (1/4 * unit2Px)))
-                  .style("font-size", unit2Px * (3/25))
+                  .attr("font-size", unit2Px * (3/25))
                   .text("" + ((instruBinder[touristCount][0][1][1] == true) ? "Queen " + touristCount : " Bot " + touristCount));
           if (touristCount + 1 == instruBinder.length){
               break outer;
@@ -808,9 +808,9 @@ function LoadField() {
   d3.select("#subheader").text(algorithmName + w);
   d3.select("#descriptiontitle").text(algorithmName + " Description:");
   fieldSVG.select(".backGround").append("text").attr("x",  center[0]).attr("y", unit2Px * (1 / 5))
-          .style("text-anchor", "middle").style("font-size", unit2Px * (1 / 5)).text(algorithmName + w);
+          .style("text-anchor", "middle").attr("font-size", unit2Px * (1 / 5)).text(algorithmName + w);
   fieldSVG.select(".backGround").append("text").attr("x",  center[0]).attr("y", unit2Px * (5 / 10)).attr("class", "exitText")
-          .style("text-anchor", "middle").style("font-size", unit2Px * (2 / 10))
+          .style("text-anchor", "middle").attr("font-size", unit2Px * (2 / 10))
           .text("Left-Click to place exit at ~" + 0 + " degrees");
   if (degrees == 13) {//If circle, change to 360 degrees.
     degrees = 360;
@@ -831,39 +831,39 @@ function LoadField() {
           .style("fill", "#ffffff").style("stroke", "#000000").style("stroke-width", (1 / 200) * unit2Px);
   if (degrees == 2) {//Add two distance numbers if a line.
     fieldSVG.select(".backGround").append("text").attr("x", 3.1 * unit2Px).attr("y", center[1])
-            .attr("class", "left").style("text-anchor", "middle").style("font-size", unit2Px / 5).text("1");
+            .attr("class", "left").style("text-anchor", "middle").attr("font-size", unit2Px / 5).text("1");
     fieldSVG.select(".backGround").append("text").attr("x", .9 * unit2Px).attr("y", center[1])
-            .attr("class", "right").style("text-anchor", "middle").style("font-size", unit2Px / 5).text("-1");
+            .attr("class", "right").style("text-anchor", "middle").attr("font-size", unit2Px / 5).text("-1");
   } else {//Add two reference angles if not a line.
     fieldSVG.select(".backGround").append("text").attr("x", 3.1 * unit2Px).attr("y", center[1])
-            .style("text-anchor", "start").style("font-size", unit2Px / 5).text("0");
+            .style("text-anchor", "start").attr("font-size", unit2Px / 5).text("0");
     fieldSVG.select(".backGround").append("text").attr("x", center[0]).attr("y", .9 * unit2Px)
-            .style("text-anchor", "middle").style("font-size", unit2Px / 5).text("90");
+            .style("text-anchor", "middle").attr("font-size", unit2Px / 5).text("90");
   }
 }
 
 function LoadGraph() {
   w = wireless ? "Wireless" : "Face-To-Face";
   algNameText = graphSVG.select(".backGround").append("text").attr("x", unit2Px * (2)).attr("y", unit2Px * (1/5))
-                .style("font-size", unit2Px * (1 / 5)).style("text-anchor", "start").style("text-anchor", "middle")
+                .attr("font-size", unit2Px * (1 / 5)).style("text-anchor", "start").style("text-anchor", "middle")
                 .text(algorithmName + w);
   timeText = graphSVG.select(".backGround").append("text").attr("x", unit2Px * (1/ 25)).attr("y", unit2Px * .6)
-             .style("font-size", unit2Px * (4 / 25)).style("text-anchor", "start").text("Time: 0");
+             .attr("font-size", unit2Px * (4 / 25)).style("text-anchor", "start").text("Time: 0");
   frameText = graphSVG.select(".backGround").append("text").attr("x", unit2Px * (1/ 25)).attr("y", unit2Px * .8)
-              .style("font-size", unit2Px * (4 / 25)).style("text-anchor", "start").text("Frame: 0");
+              .attr("font-size", unit2Px * (4 / 25)).style("text-anchor", "start").text("Frame: 0");
   timeSlider = graphSVG.select(".backGround").append("rect").attr("width", unit2Px / 20).attr("height", unit2Px * (31/20))
                .attr("y", unit2Px * 2).attr("x", unit2Px * (10/25))
                .style("fill", "#888888").style("fill-opacity", .5)
                .call(d3.drag().on("start", SSlide).on("drag", MSlide).on("end", ESlide));
   //var fo = graphSVG.append('foreignObject').attr('x', unit2Px * (1/25)).attr('y', unit2Px * (18/25)).attr('width', unit2Px * 1.5).attr('height', unit2Px * (18/25));
  // var timeButtons = fo.append('xhtml:div');
-  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1).text(' ▶▶ Play').style('font-size', unit2Px * 5/25).attr('fill', 'green')
+  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1).text(' ▶▶ Play').attr('font-size', unit2Px * 5/25).attr('fill', 'green')
             .attr('class', 'reveal play').style('box-sizing', 'border-box').attr('cursor', 'pointer').on('click', () => {timeDirect++;});
-  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1.2).text(' ■ Stop').style('cursor', 'pointer').style('font-size', unit2Px * 5/25).attr('fill', 'red')
+  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1.2).text(' ■ Stop').style('cursor', 'pointer').attr('font-size', unit2Px * 5/25).attr('fill', 'red')
             .attr('class', 'reveal play').on('click', () => {timeDirect = 0;});
-  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1.4).text(' ◀◀ Rewind').style('cursor', 'pointer').style('font-size', unit2Px * 5/25).attr('fill', 'blue')
+  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1.4).text(' ◀◀ Rewind').style('cursor', 'pointer').attr('font-size', unit2Px * 5/25).attr('fill', 'blue')
             .attr('class', 'reveal play').on('click', () => {timeDirect--;});
-  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1.6).text(' ◀ Slow ▶').style('cursor', 'pointer').style('font-size', unit2Px * 5/25).attr('fill', 'cyan')
+  graphSVG.select(".overLay").append('text').attr("x", unit2Px * (1/25)).attr("y", unit2Px * 1.6).text(' ◀ Slow ▶').style('cursor', 'pointer').attr('font-size', unit2Px * 5/25).attr('fill', 'cyan')
             .attr('class', 'reveal play').on('click', () => {if (timeDirect == 0) {timeDirect += 0.5;} else {timeDirect/=2;}});
 /*
   timeButtons.append('input')
@@ -883,21 +883,21 @@ function LoadGraph() {
   for (var i = 0; i < 3; i++) {//Create y-axis labels.
     graphSVG.select(".backGround").append("text").attr("x", unit2Px * (8 / 25))
             .attr("y", unit2Px * (90 / 25) - i * unit2Px * (20 / 25))
-            .style("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i + 'r');
+            .attr("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i + 'r');
   }
 
   for (var i = 0; i < 11; i++) {//Create x-axis labels.
     graphSVG.select(".backGround").append("text").attr("x", unit2Px * (10 / 25) + i * unit2Px * (8 / 25))
             .attr("y", unit2Px * (94 / 25))
-            .style("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i)
+            .attr("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i)
             .attr("class", "graphnum");
   }
 
   graphSVG.select(".backGround").append("text").attr("x", unit2Px * (5 / 25)).attr("y", unit2Px * (70 / 25)).attr("text-anchor", "middle")
           .attr("transform", "rotate(-90," + unit2Px * (5 / 25) + ',' + unit2Px * (70 / 25) + ')')
-          .style("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Distance from Exit");
+          .attr("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Distance from Exit");
   graphSVG.select(".backGround").append("text").attr("x", unit2Px * 2).attr("y", unit2Px * (395 / 100)).attr("text-anchor", "middle")
-          .style("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Time");
+          .attr("font-size", unit2Px * (5 / 25)).style("fill", "#000000").text("Time");
 
 }
 
@@ -1031,21 +1031,21 @@ function AlterAnim() {
     for (var i = 0; i <= Math.floor((100 * time) / fps) / 100; i++) {//Create x-axis labels.
       graphSVG.select(".backGround").append("text").attr("x", (10/25 + (i / (Math.floor((100 * time) / fps) / 100)) * 80/25) * unit2Px)//unit2Px * (10 / 25) + ((Math.floor(timeMax) - i) * 80/25) * unit2Px)
               .attr("y", unit2Px * (94 / 25))
-              .style("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i);
+              .attr("font-size", unit2Px * (4 / 25)).style("text-anchor", "middle").text(i);
     }
     graphSVG.select(".backGround").append("text").attr("x", (unit2Px * 65/25)).attr("y", unit2Px * (1.7))
-            .style("font-size", unit2Px * (4/25))
+            .attr("font-size", unit2Px * (4/25))
             .text("End: " + Math.floor((100 * time) / fps) / 100 + " sec");
     if (exitFoundFrame > 0){
         graphSVG.select(".backGround").append("text").attr("x", (unit2Px * 65/25)).attr("y", (unit2Px * (1.55)))
-            .style("font-size", unit2Px * (2/25))
+            .attr("font-size", unit2Px * (2/25))
             .text("Exit found frame: " + exitFoundFrame);
     }
     graphSVG.select(".overLay").append('text').attr("x", unit2Px * 65/25).attr("y", unit2Px * 1.83)
-            .attr("class", "sliderhelp").style("font-size", unit2Px * (3/25)).text("Click and drag gray bar")
+            .attr("class", "sliderhelp").attr("font-size", unit2Px * (3/25)).text("Click and drag gray bar")
             .style("fill", "#bbbbaa");
     graphSVG.select(".overLay").append('text').attr("x", unit2Px * 65/25).attr("y", unit2Px * 1.95)
-            .attr("class", "sliderhelp").style("font-size", unit2Px * (3/25)).text("to see the timeline")
+            .attr("class", "sliderhelp").attr("font-size", unit2Px * (3/25)).text("to see the timeline")
             .style("fill", "#bbbbaa");
   } else {
     var saveBuffer = [];
@@ -1219,7 +1219,7 @@ function MoveDataBox() {
   dataBox.attr("height", instruBinder[+hold.attr("data")].length * unit2Px / 4);
   for (var i = 0; i < instruBinder[+hold.attr("data")].length; i++) {//Add instructions as text
     dataBox.append("text").attr("x", (1 / 10) * unit2Px).attr("y", (1 + i) * (3 / 20) * unit2Px)
-           .style("font-size", (3 / 20) * unit2Px)
+           .attr("font-size", (3 / 20) * unit2Px)
            .text(instruBinder[+hold.attr("data")][i]);
   }
   var num = hold.attr("data");

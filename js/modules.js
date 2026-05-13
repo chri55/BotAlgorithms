@@ -469,14 +469,14 @@ class exitFindMod {
             .attr("y", 70)
             .attr("transform", "rotate(-90, 10, 75)")
             .style("fill", "#000000")
-            .style("font-size", "5")
+            .attr("font-size", "5")
             .style("text-anchor", "middle")
             .text("Dist. from Exit (radius)");
         this.graphSVG.select("#overLay").append("text")
             .attr("x", 50)
             .attr("y", 98)
             .style("fill", "#000000")
-            .style("font-size", "5")
+            .attr("font-size", "5")
             .style("text-anchor", "middle")
             .text("Time (seconds)");
 
@@ -485,7 +485,7 @@ class exitFindMod {
             this.graphSVG.select("#backGround").append("text")
                 .attr("x", (0.3 * this.iclData.unit2Px))
                 .attr("y", ((3.55 * this.iclData.unit2Px) - (i * this.iclData.unit2Px)))
-                .style("font-size", this.iclData.unit2Px * (4 / 25))
+                .attr("font-size", this.iclData.unit2Px * (4 / 25))
                 .style("text-anchor", "middle").text(i + 'r');
         }
 
@@ -495,7 +495,7 @@ class exitFindMod {
             this.graphSVG.select("#backGround").append("text")
                 .attr("x", (0.5 * this.iclData.unit2Px + i / mtime * 3 * this.iclData.unit2Px))
                 .attr("y", this.iclData.unit2Px * 3.75)
-                .style("font-size", this.iclData.unit2Px * (4 / 25))
+                .attr("font-size", this.iclData.unit2Px * (4 / 25))
                 .style("text-anchor", "middle")
                 .text(i)
                 .attr("class", "graphnum");
@@ -535,7 +535,7 @@ class exitFindMod {
                     this.graphSVG.select("#overLay").append("text")
                         .attr("x", (2 * this.iclData.unit2Px) + (this.iclData.unit2Px / 15) + (j * (2 / 3 * this.iclData.unit2Px)))
                         .attr("y", (this.iclData.unit2Px * 0.15) + (this.iclData.unit2Px / 32) + (i * (1 / 5 * this.iclData.unit2Px)))
-                        .style("font-size", this.iclData.unit2Px * (3 / 25))
+                        .attr("font-size", this.iclData.unit2Px * (3 / 25))
                         .text("" + ((this.iclData.tourists[touristCount].icl[0][1] === true) ? "Queen " + touristCount : " Bot " + touristCount));
 
                     if (touristCount + 1 == this.iclData.instruBinder.length) {
@@ -701,7 +701,7 @@ class lineFillMod {
             this.exitEnvelopeGraph.select("backGround").append("text")
                 .attr("x", (0.3 * this.iclData.unit2Px))
                 .attr("y", ((3.55 * this.iclData.unit2Px) - (i * 0.5 *this.iclData.unit2Px)))
-                .style("font-size", this.iclData.unit2Px * (4 / 25))
+                .attr("font-size", this.iclData.unit2Px * (4 / 25))
                 .style("text-anchor", "middle").text(i + 's');
         }
 
@@ -709,14 +709,14 @@ class lineFillMod {
             this.exitEnvelopeGraph.select("#backGround").append("text")
                 .attr("x", (0.5 * this.iclData.unit2Px) + (3 * this.iclData.unit2Px * ((i * 60) / 360)))
                 .attr("y", (3.75 * this.iclData.unit2Px))
-                .style("font-size", this.iclData.unit2Px * (4 / 25))
+                .attr("font-size", this.iclData.unit2Px * (4 / 25))
                 .text((i * 60) + "°");
 
         }
         var graphName = this.exitEnvelopeGraph.select("#backGround").append("text")
             .attr("x", this.iclData.unit2Px * 2)
             .attr("y", this.iclData.unit2Px * 0.5)
-            .style("font-size", 0.12 * this.iclData.unit2Px)
+            .attr("font-size", 0.12 * this.iclData.unit2Px)
             .style("text-anchor", "middle")
             .text("Time until evacuation condition for each searched point this run");
 
@@ -741,13 +741,13 @@ class lineFillMod {
             var exitMax = this.exitEnvelopeGraph.select("#backGround").append("text")
                 .attr("x", this.iclData.unit2Px * 2)
                 .attr("y", this.iclData.unit2Px)
-                .style("font-size", 0.2 * this.iclData.unit2Px)
+                .attr("font-size", 0.2 * this.iclData.unit2Px)
                 .style("text-anchor", "middle")
                 .text("Max time taken: " + formatvalue(Math.max(...this.exitTimes)));
             var worstPlacement = this.exitEnvelopeGraph.select("#backGround").append("text")
                 .attr("x", this.iclData.unit2Px * 2)
                 .attr("y", this.iclData.unit2Px * 1.2)
-                .style("font-size", 0.2 * this.iclData.unit2Px)
+                .attr("font-size", 0.2 * this.iclData.unit2Px)
                 .style("text-anchor", "middle")
                 .text("Worst Exit Placement: " + (this.exitTimes.indexOf(Math.max(...this.exitTimes))) / 2 + "°");
         }
@@ -892,24 +892,24 @@ class iclVisual {
             })(this)).on("end", this.ESlide)).attr("class", "timeSlide" + this.iclData.id);
 
         this.timeText = this.graphSVG.select("#overLay").append("text").attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * .15)
-            .style("font-size", this.iclData.unit2Px * (4 / 25)).style("text-anchor", "start").text("Time: 0").attr("class", "timeText");
+            .attr("font-size", this.iclData.unit2Px * (4 / 25)).style("text-anchor", "start").text("Time: 0").attr("class", "timeText");
         this.frameText = this.graphSVG.select("#overLay").append("text").attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * .35)
-            .style("font-size", this.iclData.unit2Px * (4 / 25)).style("text-anchor", "start").text("Frame: 0").attr("class", "frameText");
+            .attr("font-size", this.iclData.unit2Px * (4 / 25)).style("text-anchor", "start").text("Frame: 0").attr("class", "frameText");
         var exitPlacement = this.graphSVG.select("#overLay").append("text")
             .attr("x", this.iclData.unit2Px * 0.04)
             .attr("y", this.iclData.unit2Px * 0.55)
-            .style("font-size", 0.16 * this.iclData.unit2Px)
+            .attr("font-size", 0.16 * this.iclData.unit2Px)
             .text("Exit Placement: " + this.iclData.exitAngle + "°");
 
-        this.graphSVG.select("#overLay").append('text').attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * 0.75).text(' ▶▶ Play').style('font-size', this.iclData.unit2Px * 4 / 25).attr('fill', 'green')
+        this.graphSVG.select("#overLay").append('text').attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * 0.75).text(' ▶▶ Play').attr('font-size', this.iclData.unit2Px * 4 / 25).attr('fill', 'green')
             .attr('class', 'reveal play').style('box-sizing', 'border-box').attr('cursor', 'pointer').on('click', () => {
                 this.iclData.timeDirect++;
             });
-        this.graphSVG.select("#overLay").append('text').attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * 0.95).text(' ■ Stop').style('cursor', 'pointer').style('font-size', this.iclData.unit2Px * 4 / 25).attr('fill', 'red')
+        this.graphSVG.select("#overLay").append('text').attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * 0.95).text(' ■ Stop').style('cursor', 'pointer').attr('font-size', this.iclData.unit2Px * 4 / 25).attr('fill', 'red')
             .attr('class', 'reveal play').on('click', () => {
                 this.iclData.timeDirect = 0;
             });
-        this.graphSVG.select("#overLay").append('text').attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * 1.15).text(' ◀◀ Rewind').style('cursor', 'pointer').style('font-size', this.iclData.unit2Px * 4 / 25).attr('fill', 'blue')
+        this.graphSVG.select("#overLay").append('text').attr("x", this.iclData.unit2Px * (1 / 25)).attr("y", this.iclData.unit2Px * 1.15).text(' ◀◀ Rewind').style('cursor', 'pointer').attr('font-size', this.iclData.unit2Px * 4 / 25).attr('fill', 'blue')
             .attr('class', 'reveal play').on('click', () => {
                 this.iclData.timeDirect--;
             });
